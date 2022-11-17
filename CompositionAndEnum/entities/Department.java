@@ -1,30 +1,23 @@
-package entities.department;
+package entities;
 
 public class Department {
-	
-	private String department;
 
+	private String name;
+	
 	// Construtores da classe
 	public Department () {}
 	
-	public Department (String department) {
-		this.department = department;
+	public Department(String departmentName) {
+		this.name = departmentName;
 	}
-	
+
 	// Métodos getters and setters
-	public String getDepartment() {
-		return department;
+	public String getName() {
+		return name;
 	}
 
-	public void setDepartment(String department) {
-		this.department = department;
-	}
-
-	@Override
-	public String toString() {
-		return department;
-	}
+	public void setName(String name) {
+		this.name = name;
+	}	
 	
-	
-
 }

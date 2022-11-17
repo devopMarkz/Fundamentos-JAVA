@@ -1,7 +1,6 @@
 package entities;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 public class HourContract {
 
@@ -12,10 +11,8 @@ public class HourContract {
 	// Construtores da classe
 	public HourContract () {}
 	
-	public HourContract(String data, Double valuePerHour, Integer hours) {
-		DateTimeFormatter fmt1 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-		LocalDate date = LocalDate.parse(data, fmt1);
-		this.date = date;
+	public HourContract(LocalDate contractDate, Double valuePerHour, Integer hours) {
+		this.date = contractDate;
 		this.valuePerHour = valuePerHour;
 		this.hours = hours;
 	}
@@ -45,4 +42,8 @@ public class HourContract {
 		this.hours = hours;
 	}
 	
+	public double totalValue () {
+		return valuePerHour * hours;
+	}
+ 	
 }

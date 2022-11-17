@@ -1,13 +1,15 @@
-package composicao;
+package application;
 
+import java.time.LocalDate;
+import java.time.YearMonth;
+import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.Scanner;
 
-import entities.Funcionario;
-import entities.contract.HourContract;
-import entities.department.Department;
-import entities.level.EmployeeLevel;
-
+import entities.Department;
+import entities.HourContract;
+import entities.Worker;
+import entities.enums.WorkerLevel;
 
 public class Main {
 
@@ -20,57 +22,52 @@ public class Main {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner (System.in);
 		
-		// Descrição do departamento
+		DateTimeFormatter fmt1 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		DateTimeFormatter fmt2 = DateTimeFormatter.ofPattern("MM/yyyy");
+		
+		// Criando objeto department
 		System.out.print("Insira o nome do departamento: ");
-		String depart = sc.nextLine();
+		String departmentName = sc.nextLine();
 		
-		// Criando objeto deepartamento
-		Department department = new Department (depart);
-		
-		// Coletando dados do funcionário
-		System.out.println("Insira os dados do funcionário: ");
-		
-		System.out.print("Nome: ");
+		// Inserindo dados no objeto worker
+		System.out.printf("Insira os dados do trabalhador: %nName: ");
 		String name = sc.nextLine();
 		
-		System.out.print("Nível (junior / mid_level / senior): ");
-		String lv = sc.next().toUpperCase();
-		EmployeeLevel level = EmployeeLevel.valueOf(lv);
+		System.out.print("Level (JUNIOR/MID_LEVEL/SENIOR): ");
+		String workerLevel = sc.next().toUpperCase();
 		
-		System.out.println("Salário base: ");
+		System.out.print("Salário base: ");
 		Double baseSalary = sc.nextDouble();
 		
-		// Criando objeto funcionário
-		Funcionario funcionario = new Funcionario(name, level, baseSalary);
+		Worker worker = new Worker(name, WorkerLevel.valueOf(workerLevel), baseSalary, new Department(departmentName));
 		
-		// Criação de contratos
-		System.out.print("Quantos contratos deseja dar à esse funcionário? ");
-		Integer contractNumber = sc.nextInt();
+		System.out.print("Quantos contratos deseja dar à esse trabalhador");
+		int contracts = sc.nextInt();
 		
-		HourContract[] contratos = new HourContract[contractNumber];
-		
-		for (int i = 0; i < contratos.length; i++) {
-			sc.nextLine();
-			System.out.println("Insira os dados do contrato #" + (i+1));
+		for (int i = 0; i < contracts; i++) {
+			System.out.println("Insira os dados do contrato #" + (i + 1));
 			
 			System.out.print("Data (DD/MM/YYYY): ");
-			String data = sc.nextLine();
+			LocalDate contractDate = LocalDate.parse(sc.next(), fmt1);
 			
 			System.out.print("Valor por hora: ");
 			Double valuePerHour = sc.nextDouble();
 			
-			System.out.print("Duração (horaas): ");
+			System.out.print("Duração: ");
 			Integer hours = sc.nextInt();
 			
-			contratos[i] = new HourContract(data, valuePerHour, hours);
+			// Gerando objeto contract e salvando dentro da lista de contratos do objeto worker
+			HourContract contract = new HourContract(contractDate, valuePerHour, hours);
+			worker.addContract(contract);
 		}
 		
-		sc.nextLine();
+		System.out.print("Insira o mês e o ano para calcular a renda do trabalhador (MM/YYYY): ");
+		YearMonth yearMonth = YearMonth.parse(sc.next(), fmt2);
 		
-		System.out.print("Insira o mês e o ano para calcular a renda do funcionário (MM/YYYY): ");
-		String incomeByDate = sc.nextLine();
-		
-		System.out.println(funcionario.toString(department, incomeByDate, contratos));
+		System.out.println("Name: " + worker.getName());
+		System.out.println("Department: " + worker.getDepartment().getName());
+		System.out.println("Renda de " + yearMonth.format(fmt2) + ": " + worker.income(yearMonth));
+		 
 		
 		sc.close();
 

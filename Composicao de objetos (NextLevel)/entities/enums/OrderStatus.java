@@ -1,7 +1,7 @@
 package entities.enums;
 
 // STATUS DO PEDIDO
-public enum OrderStatus {
+public enum OrderStatus { 
 	
 	PAGAMENTO_PENDENTE,
 	PROCESSANDO,

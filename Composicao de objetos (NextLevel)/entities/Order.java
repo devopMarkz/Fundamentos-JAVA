@@ -10,7 +10,7 @@ import entities.enums.OrderStatus;
 // PEDIDO
 public class Order {
 	
-	// Atributos da classe
+	// Atributos da classe 
 	private LocalDateTime moment;
 	private OrderStatus status;
 	

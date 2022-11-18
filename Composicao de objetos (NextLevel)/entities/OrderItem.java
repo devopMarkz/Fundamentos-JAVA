@@ -49,7 +49,14 @@ public class OrderItem {
 	
 	public String toString () {
 		StringBuilder almost = new StringBuilder ();
-		almost.append(product + ", " + quantity + ", Subtotal: " + String.format("%.2f", subTotal()));
+		almost.append(
+				product.getName()
+				+ ", R$" 
+				+ String.format("%.2f", product.getPrice()) 
+				+ ", " 
+				+ quantity
+				+ " unidades, Subtotal: R$" 
+				+ String.format("%.2f", subTotal()));
 		return almost.toString();
 	}
 

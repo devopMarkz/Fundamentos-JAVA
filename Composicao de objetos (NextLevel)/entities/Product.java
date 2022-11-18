@@ -8,7 +8,7 @@ public class Product {
 	
 	// Construtores da classe
 	public Product () {}
-	
+	 
 	public Product (String productName, double productPrice) {
 		name = productName;
 		price = productPrice;

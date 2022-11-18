@@ -47,6 +47,7 @@ public class OrderItem {
 		return quantity * price; 
 	}
 	
+	// Representação do item do pedido
 	public String toString () {
 		StringBuilder almost = new StringBuilder ();
 		almost.append(

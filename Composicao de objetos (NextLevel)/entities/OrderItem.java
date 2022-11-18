@@ -44,7 +44,7 @@ public class OrderItem {
 	
 	// Métodos da classe
 	public Double subTotal () {
-		return quantity * price;
+		return quantity * price; 
 	}
 	
 	public String toString () {

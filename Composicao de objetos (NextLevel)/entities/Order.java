@@ -64,6 +64,7 @@ public class Order {
 		this.item.remove(item);
 	}
 	
+	// Representação da nota do pedido
 	public String toString () {
 		StringBuilder almost = new StringBuilder ();
 		almost.append(

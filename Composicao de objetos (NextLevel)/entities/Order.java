@@ -63,8 +63,16 @@ public class Order {
 	public void removeItem (OrderItem item) {
 		this.item.remove(item);
 	}
+
+	public Double total () {
+		double sum = 0;
+		
+		for (OrderItem it : item) {
+			sum += it.subTotal();
+		}
+		return sum;
+	}
 	
-	// Representação da nota do pedido
 	public String toString () {
 		StringBuilder almost = new StringBuilder ();
 		almost.append(
@@ -75,7 +83,10 @@ public class Order {
 		for (OrderItem item : item) {
 			almost.append(item.toString() + "\n");
 		}
+		almost.append("Preço total: " + String.format("%.2f", total()));
 		return almost.toString();
 	}
+
+}
 
 }

@@ -28,13 +28,13 @@ public final class OutsourcedEmployee extends Employee {
 	// Métodos da classe
 	
 	@Override
-	public double payment () {
+	public final double payment () {
 		return super.payment() 
 				+ (this.aditionalCharge * 110 / 100);
 	}
 	
 	@Override
-	public String toString () {
+	public final String toString () {
 		return super.name + ", "
 				+ this.payment();
 	}

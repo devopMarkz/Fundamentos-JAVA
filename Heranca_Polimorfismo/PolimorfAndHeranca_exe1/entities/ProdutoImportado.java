@@ -29,7 +29,7 @@ public final class ProdutoImportado extends Produto {
 	@Override
 	public String priceTag () {
 		return super.priceTag() 
-				+ String.format(" (Customs fee: $ %.2f)", totalPrice());
+				+ String.format(" (Customs fee: $ %.2f)", this.customsFee);
 	}
 	
 	public Double totalPrice () {

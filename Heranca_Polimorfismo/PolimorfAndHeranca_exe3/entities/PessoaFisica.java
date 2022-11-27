@@ -35,7 +35,7 @@ public final class PessoaFisica extends Contribuinte {
 		double imposto = 0;
 		
 		if (super.getRendaAnual() < 20000) imposto = super.getRendaAnual() * 0.15;
-		else if (super.getRendaAnual() > 20000) imposto = super.getRendaAnual() * 0.25;
+		else imposto = super.getRendaAnual() * 0.25;
 		
 		if (this.gastosComSaude > 0) imposto = imposto - (this.gastosComSaude * 0.5); 
 		

@@ -1,0 +1,7 @@
+Fazer um programa para ler os dados
+de N figuras, e depois mostrar as 
+áreas destas figuras na mesma ordem
+em que foram digitadas.
+
+- Herança e Polimorfismo
+- Classes e métodos abstratos

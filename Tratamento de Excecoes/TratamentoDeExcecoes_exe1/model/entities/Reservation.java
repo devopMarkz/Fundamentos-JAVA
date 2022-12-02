@@ -46,7 +46,7 @@ public class Reservation {
 	// Métodos da classe
 	
 	public long duration () {
-		Duration dt = Duration.between(checkout.atStartOfDay(), checkin.atStartOfDay());
+		Duration dt = Duration.between(checkin.atStartOfDay(), checkout.atStartOfDay());
 		return dt.toDays();
 	}
 	

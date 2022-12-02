@@ -57,9 +57,10 @@ public class Reservation {
 	
 	@Override
 	public String toString () {
-		return "Reservation: " + this.roomNumber
+		return "Reservation: Room " + this.roomNumber
 				+ ", checkin: " + this.checkin.format(fmt1)
-				+ ", checkout: " + this.checkout.format(fmt1);
+				+ ", checkout: " + this.checkout.format(fmt1)
+				+ ", " + this.duration() + " nights";
 	}
 
 }

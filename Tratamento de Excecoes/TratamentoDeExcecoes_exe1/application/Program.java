@@ -29,6 +29,7 @@ public class Program {
 		Reservation reservation;
 		if (!checkout.isAfter(checkin)) {
 			System.err.println("A data de checkout não pode vir antes do checkin!");
+			reservation = new Reservation();
 		}
 		else {
 			reservation = new Reservation(roomNumber, checkin, checkout);
@@ -49,18 +50,15 @@ public class Program {
 		
 		// NÃO PODE INSERIR DATAS ANTES DA ATUAL (EXCEPTIONS)
 		// A DATA DE CHECKOUT NÃO PODE VIR ANTES DA DE CHECKIN (EXCEPTIONS)
-		if (newCheckinDate.isBefore(LocalDate.now()) || newCheckoutDate.isBefore(LocalDate.now())) {
-			System.err.println("Não é possível inserir datas que vem antes da atual!");
-		}
-		else if (!newCheckoutDate.isAfter(newCheckinDate)) {
-			System.err.println("A data de checkout não pode vir antes do checkin!");
+		
+		String error = reservation.updateDates(newCheckinDate, newCheckoutDate);
+		if (error != null) {
+			System.out.println("Error in reservation: " + error);
 		}
 		else {
-			reservation = new Reservation(roomNumber, newCheckinDate, newCheckoutDate);
-			reservation.updateDates(newCheckinDate, newCheckoutDate);
-			System.out.println(reservation.toString());
+			System.out.println("Reservation: " + reservation.toString());
 		}
-		
+				
 		sc.close();
 
 	}

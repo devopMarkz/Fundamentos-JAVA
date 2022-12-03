@@ -50,9 +50,16 @@ public class Reservation {
 		return dt.toDays();
 	}
 	
-	public void updateDates (LocalDate newCheckinDate, LocalDate newCheckoutDate) {
+	public String updateDates (LocalDate newCheckinDate, LocalDate newCheckoutDate) {
+		if (newCheckinDate.isBefore(LocalDate.now()) || newCheckoutDate.isBefore(LocalDate.now())) {
+			return "Não é possível inserir datas que vem antes da atual!";
+		}
+		if (!newCheckoutDate.isAfter(newCheckinDate)) {
+			return "A data de checkout não pode vir antes do checkin!";
+		}
 		this.checkin = newCheckinDate;
 		this.checkout = newCheckoutDate;
+		return null;
 	}
 	
 	@Override

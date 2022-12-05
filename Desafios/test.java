@@ -6,7 +6,11 @@ public class test {
 
 	public static void main(String[] args) {
 
-		System.out.println(new test().a);
+		// Desafio: Acesse o atributo a dentro da função executável main, no sysout
+
+		// Só pode mexer aqui
+		System.out.println(new test().a); // Só pode mexer aqui
+		// Só pode mexer aqui
 
 	}
 

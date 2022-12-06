@@ -4,6 +4,9 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+import model.exceptions.ReservationException;
+import model.exceptions.ReservationUpdateDatesException;
+
 public class Reservation {
 	
 	private Integer roomNumber;
@@ -19,7 +22,8 @@ public class Reservation {
 	public Reservation () {
 	}
 	
-	public Reservation (int roomNumber, LocalDate checkin, LocalDate checkout) {
+	public Reservation (int roomNumber, LocalDate checkin, LocalDate checkout) throws ReservationException{
+		if (!checkout.isAfter(checkin)) throw new ReservationException("A data de checkout não vem antes do chechin.");
 		this.roomNumber = roomNumber;
 		this.checkin = checkin;
 		this.checkout = checkout;
@@ -50,16 +54,11 @@ public class Reservation {
 		return dt.toDays();
 	}
 	
-	public String updateDates (LocalDate newCheckinDate, LocalDate newCheckoutDate) {
-		if (newCheckinDate.isBefore(LocalDate.now()) || newCheckoutDate.isBefore(LocalDate.now())) {
-			return "Não é possível inserir datas que vem antes da atual!";
-		}
-		if (!newCheckoutDate.isAfter(newCheckinDate)) {
-			return "A data de checkout não pode vir antes do checkin!";
-		}
+	public void updateDates (LocalDate newCheckinDate, LocalDate newCheckoutDate) throws ReservationException, ReservationUpdateDatesException {
+		if (!checkout.isAfter(checkin)) throw new ReservationException("A data de checkout não vem antes do chechin.");
+		if (newCheckinDate.isBefore(LocalDate.now()) || newCheckoutDate.isBefore(LocalDate.now())) throw new ReservationUpdateDatesException("As datas de checkin e checkout não podem vir antes da atual.");
 		this.checkin = newCheckinDate;
 		this.checkout = newCheckoutDate;
-		return null;
 	}
 	
 	@Override

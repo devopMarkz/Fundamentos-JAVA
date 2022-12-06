@@ -55,7 +55,6 @@ public class Account {
 	
 	public void withdraw (double amount) throws AccountWithdrawException {
 		if (amount > this.balance) throw new AccountWithdrawException("the withdrawal amount cannot be greater than the account balance");
-		if (this.balance <= 0) throw new AccountWithdrawException("It is not allowed to withdraw from an account without balance");
 		if (amount > this.withdrawLimit) throw new AccountWithdrawException("The withdrawal amount is greater than the withdrawal limit");
 		this.balance -= amount;
 	}

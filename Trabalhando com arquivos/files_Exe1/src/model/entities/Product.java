@@ -4,14 +4,14 @@ public class Product {
 	
 	private String name;
 	private Double price;
-	private Double quantity;
+	private Integer quantity;
 	
 	// Construtores da classe
 	
 	public Product () {
 	}
 	
-	public Product (String name, double price, double quantity) {
+	public Product (String name, double price, int quantity) {
 		this.name = name;
 		this.price = price;
 		this.quantity = quantity;
@@ -35,11 +35,11 @@ public class Product {
 		this.price = price;
 	}
 
-	public Double getQuantity() {
+	public Integer getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(Double quantity) {
+	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
 	

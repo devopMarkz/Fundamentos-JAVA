@@ -26,13 +26,12 @@ public class Program {
 			
 			while (sc.hasNextLine()) { // Salva os produtos do arquivo na listaProdutos
 				String[] product = sc.nextLine().split(",");
-				bw.write((new Product(product[0], Double.parseDouble(product[1]), Integer.parseInt(product[2])).toString()));
+				bw.write((new Product(product[0], Double.parseDouble(product[1]), Integer.parseInt(product[2])).toString())); // Add toString de Product ao arquivo out.txt
 				bw.newLine();
 			}			
 			
 		} catch (IOException e) {
-			System.out.println("AAAAAs");
-			e.printStackTrace();
+			System.out.println("Error: " + e.getMessage());
 		}
 	}
 	

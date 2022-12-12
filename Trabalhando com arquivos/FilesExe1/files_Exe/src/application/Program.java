@@ -19,8 +19,8 @@ public class Program {
 	}
 	
 	private static void getFiles () {
-		File file = new File("c:\\Repositório local\\Repositório local - Conceitos JAVA\\Trabalhando com arquivos\\fileData\\in.csv");
-		new File("c:\\Repositório local\\Repositório local - Conceitos JAVA\\Trabalhando com arquivos\\fileData\\out").mkdir();
+		File file = new File("c:\\Repositório local\\Repositório local - Conceitos JAVA\\Trabalhando com arquivos\\FilesExe1\\fileData\\in.csv");
+		new File(file.getParent() + "\\out").mkdir();
 		
 		try (Scanner sc = new Scanner (new BufferedReader(new FileReader(file))); BufferedWriter bw = new BufferedWriter(new FileWriter(file.getParent() + "\\out\\summary.csv"))) {
 			

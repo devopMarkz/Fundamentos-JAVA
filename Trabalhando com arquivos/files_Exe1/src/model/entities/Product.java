@@ -1,3 +1,5 @@
+
+
 package model.entities;
 
 public class Product {
@@ -34,7 +36,7 @@ public class Product {
 	public void setPrice(Double price) {
 		this.price = price;
 	}
-
+	
 	public Integer getQuantity() {
 		return quantity;
 	}
@@ -45,15 +47,14 @@ public class Product {
 	
 	// Métodos da classe
 	
-	public double totalValue () {
-		return this.price * this.quantity;
+	public double totalValue (double price, double quantity) {
+		return this.price = price * quantity;
 	}
 	
 	@Override
 	public String toString() {
 		return this.name + ","
-				+ this.price + ","
-				+ this.quantity;
+				+ this.totalValue(price, quantity);
 	}
 
 }

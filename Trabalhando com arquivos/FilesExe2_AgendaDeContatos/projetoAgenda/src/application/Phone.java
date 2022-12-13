@@ -33,23 +33,20 @@ public record Phone(ContactBook contactBook, Integer choiceInit) {
 
 	}
 	
-	private void accessContactBook () { // Permite o acesso à lista de contatos
+	private void accessContactBook () { // 1: Acess agenda
 		try (Scanner readingFile = new Scanner (new BufferedReader(new FileReader(contactBookFile)))){
-			
 			System.out.println("**************** CONTACT LIST ****************\n");
 			
 			while(readingFile.hasNextLine()) {
 				System.out.println(readingFile.nextLine());
 			}
-			
 		} catch (IOException e) {
 			System.out.println("Error reading file: " + e.getMessage());
 		}
 	}
 	
-	private void addContact () { // Possibilita adicionar contato ao arquivo contactBook.csv
+	private void addContact () { // 2: Add contact (Possibilita adicionar contato ao arquivo contactBook.csv)
 		try (BufferedWriter insertData = new BufferedWriter(new FileWriter(contactBookFile))){
-			
 			System.out.print("How many contacts you want to add to the list? ");
 			int numberOfContacts = input.nextInt();
 			
@@ -61,14 +58,11 @@ public record Phone(ContactBook contactBook, Integer choiceInit) {
 				insertData.write(contact.toString());
 				insertData.newLine();
 			}
-			
 		} catch (RuntimeException e) {
 			System.out.println("Invalid input!");
-		}
-		catch (IOException e) {
+		} catch (IOException e) {
 			System.out.println("Error: " + e.getMessage());
 		}
-		
 	}
 	
 	private void addContactToContactBook (int numberOfContacts) { // Insere objetos Contact à lista de contatos do objeto ContactBook

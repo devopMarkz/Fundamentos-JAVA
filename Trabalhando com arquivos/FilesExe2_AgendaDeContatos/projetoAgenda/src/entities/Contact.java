@@ -3,14 +3,14 @@ package entities;
 public class Contact {
 	
 	private String name;
-	private Integer phoneNumber;
+	private Long phoneNumber;
 	
 	// Construtores da classe
 	
 	public Contact () {
 	}
 	
-	public Contact(String name, Integer phoneNumber) {
+	public Contact(String name, long phoneNumber) {
 		this.name = name;
 		this.phoneNumber = phoneNumber;
 	}
@@ -25,11 +25,11 @@ public class Contact {
 		this.name = name;
 	}
 
-	public Integer getPhoneNumber() {
+	public Long getPhoneNumber() {
 		return phoneNumber;
 	}
 
-	public void setPhoneNumber(Integer phoneNumber) {
+	public void setPhoneNumber(Long phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 	
@@ -38,7 +38,8 @@ public class Contact {
 	@Override
 	public String toString () {
 		return name 
-			   + "," + phoneNumber;
+			   + ","
+			   + phoneNumber;
 	}
 
 }

@@ -46,7 +46,7 @@ public record Phone(ContactBook contactBook, Integer choiceInit) {
 	}
 	
 	private void addContact () { // 2: Add contact (Possibilita adicionar contato ao arquivo contactBook.csv)
-		try (BufferedWriter insertData = new BufferedWriter(new FileWriter(contactBookFile))){
+		try (BufferedWriter insertData = new BufferedWriter(new FileWriter(contactBookFile, true))){
 			System.out.print("How many contacts you want to add to the list? ");
 			int numberOfContacts = input.nextInt();
 			
@@ -77,6 +77,12 @@ public record Phone(ContactBook contactBook, Integer choiceInit) {
 			
 			contactBook.addContact(new Contact(name, phoneNumber));
 		}
+	}
+	
+	private void deleteContact() { // 3: Delete contact (deleta contatos da lista 
+		
+		
+		
 	}
 	
 	

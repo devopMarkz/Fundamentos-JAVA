@@ -19,7 +19,7 @@ public class Program {
 		
 		System.out.print("**************** WELCOME TO YOUR CONTACT BOOK! ****************\n");
 		System.out.println("Choose the options below to continue using the contact book:");
-		System.out.print("1: Acessar a agenda | 2: Adicionar contato | 3: Excluir contato | 4: Contatos excluídos | 5: Sair do aplicativo -> ");
+		System.out.print("1: Access agenda | 2: Add contact | 3: Delete contact | 4: Deleted contacts | 5: Exit the application -> ");
 		
 		return sc.nextInt();
 		

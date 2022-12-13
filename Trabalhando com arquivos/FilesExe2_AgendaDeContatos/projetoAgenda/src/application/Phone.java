@@ -2,7 +2,6 @@ package application;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -13,9 +12,6 @@ import entities.ContactBook;
 
 public record Phone(ContactBook contactBook, Integer choiceInit) {
 	
-	// Arquivos dos contatos
-	private static File contactBookFile = new File("c:\\Repositório local\\Repositório local - Conceitos JAVA\\Trabalhando com arquivos\\FilesExe2_AgendaDeContatos\\contactFile\\contactBook.csv");
-	private static File deletedContactsFile = new File("c:\\Repositório local\\Repositório local - Conceitos JAVA\\Trabalhando com arquivos\\FilesExe2_AgendaDeContatos\\contactFile\\deletedContacts.csv");
 	private static Scanner input = new Scanner (System.in);
 	
 	public void chosenOption () {
@@ -34,7 +30,7 @@ public record Phone(ContactBook contactBook, Integer choiceInit) {
 	}
 	
 	private void accessContactBook () { // 1: Acess agenda
-		try (Scanner readingFile = new Scanner (new BufferedReader(new FileReader(contactBookFile)))){
+		try (Scanner readingFile = new Scanner (new BufferedReader(new FileReader(Main.contactBookFile)))){
 			System.out.println("**************** CONTACT LIST ****************\n");
 			
 			while(readingFile.hasNextLine()) {
@@ -46,7 +42,7 @@ public record Phone(ContactBook contactBook, Integer choiceInit) {
 	}
 	
 	private void addContact () { // 2: Add contact (Possibilita adicionar contato ao arquivo contactBook.csv)
-		try (BufferedWriter insertData = new BufferedWriter(new FileWriter(contactBookFile, true))){
+		try (BufferedWriter insertData = new BufferedWriter(new FileWriter(Main.contactBookFile, true))){
 			System.out.print("How many contacts you want to add to the list? ");
 			int numberOfContacts = input.nextInt();
 			

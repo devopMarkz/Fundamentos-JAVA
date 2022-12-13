@@ -19,15 +19,9 @@ public class Program {
 		
 		System.out.print("**************** WELCOME TO YOUR CONTACT BOOK! ****************\n");
 		System.out.println("Choose the options below to continue using the contact book:");
+		System.out.print("1: Acessar a agenda | 2: Adicionar contato | 3: Excluir contato | 4: Contatos excluídos | 5: Sair do aplicativo -> ");
 		
-		int choiceInit;
-		
-		System.out.println("1: Acessar a agenda | 2: Adicionar contato | 3: Excluir contato | 4: Contatos excluídos | 5: Sair do aplicativo");
-		choiceInit = sc.nextInt();
-		
-		sc.close();
-		
-		return choiceInit;
+		return sc.nextInt();
 		
 	}
 

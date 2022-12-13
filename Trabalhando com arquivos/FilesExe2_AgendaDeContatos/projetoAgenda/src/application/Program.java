@@ -9,6 +9,7 @@ public class Program {
 	public static void main(String[] args) {
 		
 		Phone phone = new Phone(new ContactBook(), introduction());
+		phone.chosenOption();
 
 	}
 	

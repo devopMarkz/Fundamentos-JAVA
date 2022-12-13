@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import entities.ContactBook;
 
-public class Program {
+public class Main {
 	
 	private static Scanner input = new Scanner (System.in);
 

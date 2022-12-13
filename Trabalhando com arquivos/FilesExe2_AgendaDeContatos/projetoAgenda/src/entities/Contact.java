@@ -3,14 +3,14 @@ package entities;
 public class Contact {
 	
 	private String name;
-	private Long phoneNumber;
+	private String phoneNumber;
 	
 	// Construtores da classe
 	
 	public Contact () {
 	}
 	
-	public Contact(String name, long phoneNumber) {
+	public Contact(String name, String phoneNumber) {
 		this.name = name;
 		this.phoneNumber = phoneNumber;
 	}
@@ -25,11 +25,11 @@ public class Contact {
 		this.name = name;
 	}
 
-	public Long getPhoneNumber() {
+	public String getPhoneNumber() {
 		return phoneNumber;
 	}
 
-	public void setPhoneNumber(Long phoneNumber) {
+	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 	

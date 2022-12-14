@@ -37,10 +37,10 @@ public record Phone(ContactBook contactBook, Integer choiceInit) {
 	
 	private void accessContactBook () { // 1: Acess contact book
 		try (Scanner readingFile = new Scanner (new BufferedReader(new FileReader(Main.contactBookFile)))){
-			System.out.println("**************** CONTACT LIST ****************\n");
+			System.out.println("\n**************** CONTACT LIST ****************\n");
 			
 			while(readingFile.hasNextLine()) {
-				System.out.println(readingFile.nextLine());
+				System.out.println("\t   " + readingFile.nextLine());
 			}
 		} catch (IOException e) {
 			System.out.println("Error reading file: " + e.getMessage());

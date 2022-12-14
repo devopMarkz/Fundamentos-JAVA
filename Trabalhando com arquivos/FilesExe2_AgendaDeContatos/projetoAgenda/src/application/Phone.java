@@ -82,7 +82,8 @@ public record Phone(ContactBook contactBook, Integer choiceInit) {
 	}
 }
 	
-	/* private void deleteContact() { // 3: Delete contact (deleta contatos da lista)
+	/* EM BREVE IMPLEMENTAREI A DELEÇÃO DE CONTATOS
+	 * private void deleteContact() { // 3: Delete contact (deleta contatos da lista)
 		
 		System.out.println("Write the name and number of the contact you want to remove from the list");
 		

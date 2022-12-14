@@ -6,7 +6,6 @@ import java.util.List;
 public class ContactBook {
 
 	private List<Contact> contactList = new ArrayList<>();
-	private List<Contact> deletedContact = new ArrayList<>();
 	
 	// Construtores da classe
 	
@@ -17,10 +16,6 @@ public class ContactBook {
 	
 	public List<Contact> getContactList() {
 		return contactList;
-	}
-
-	public List<Contact> getDeletedContact() {
-		return deletedContact;
 	}
 	
 	 // Métodos da classe

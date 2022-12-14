@@ -19,17 +19,23 @@ public record Phone(ContactBook contactBook, Integer choiceInit) {
 		switch (choiceInit) {
 		case 1: {
 			accessContactBook();
+			break;
 		}
 		case 2: {
 			addContact();
+			break;
 		}
+		/* case 3: {
+			deleteContact();
+			break;
+		} */
 		default:
 			break;
 		}
 
 	}
 	
-	private void accessContactBook () { // 1: Acess agenda
+	private void accessContactBook () { // 1: Acess contact book
 		try (Scanner readingFile = new Scanner (new BufferedReader(new FileReader(Main.contactBookFile)))){
 			System.out.println("**************** CONTACT LIST ****************\n");
 			
@@ -68,18 +74,23 @@ public record Phone(ContactBook contactBook, Integer choiceInit) {
 			System.out.print("Name: ");
 			String name = input.nextLine();
 			
-			System.out.print("Phone number: ");
+			System.out.print("Phone number (Area code + Phone number): ");
 			String phoneNumber = input.nextLine();
 			
 			contactBook.addContact(new Contact(name, phoneNumber));
 		}
 	}
-	
-	private void deleteContact() { // 3: Delete contact (deleta contatos da lista 
-		
-		
-		
-	}
-	
-	
 }
+	
+	/* private void deleteContact() { // 3: Delete contact (deleta contatos da lista)
+		
+		System.out.println("Write the name and number of the contact you want to remove from the list");
+		
+		System.out.print("Name: ");
+		String name = input.nextLine();
+		
+		System.out.println("Phone number (Area code + Phone number): ");
+		String phoneNumber = input.nextLine();
+		
+		contactBook.removeContact(new Contact(name, phoneNumber));
+	} */

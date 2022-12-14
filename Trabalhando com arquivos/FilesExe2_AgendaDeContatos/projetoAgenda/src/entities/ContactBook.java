@@ -1,7 +1,9 @@
 package entities;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,21 +19,6 @@ public class ContactBook {
 	// Construtores da classe
 	
 	public ContactBook() {
-		try (Scanner readingContactListFile = new Scanner (new BufferedReader(new FileReader(Main.contactBookFile)));
-			 Scanner readingDeletedContactsFile = new Scanner (new BufferedReader(new FileReader(Main.deletedContactsFile)))){
-			
-			while(readingContactListFile.hasNextLine()) { // Preenche a lista de contatos a partir de contactBook.csv
-				String[] contact = readingContactListFile.nextLine().split(",");
-				contactList.add(new Contact(contact[0], contact[1]));
-			}
-			
-			while(readingDeletedContactsFile.hasNextLine()) { // Preenche a lista de contatos deletados a partir de deletedContacts.csv
-				String[] contact = readingDeletedContactsFile.nextLine().split(",");
-				deletedContact.add(new Contact(contact[0], contact[1]));
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 	}
 
 	// Métodos getters and setters

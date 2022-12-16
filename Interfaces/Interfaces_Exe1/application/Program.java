@@ -19,7 +19,7 @@ public class Program {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner (System.in);
 		
-		/*System.out.println("Entre com os dados do aluguel: ");
+		System.out.println("Entre com os dados do aluguel: ");
 		System.out.print("Modelo do carro: ");
 		String carModel = sc.nextLine();
 		System.out.print("Retirada: ");
@@ -41,10 +41,7 @@ public class Program {
 		System.out.println("FATURA: ");
 		System.out.println("Pagamento básico: " + cr.getInvoice().getBasicPayment());
 		System.out.println("Imposto: " + cr.getInvoice().getTax());
-		System.out.println("Pagamento total: " + cr.getInvoice().getTotalPayment());*/
-		
-		System.out.println(Math.ceil(sc.nextDouble()));
-		
+		System.out.println("Pagamento total: " + cr.getInvoice().getTotalPayment());
 		sc.close();
 		
 	}

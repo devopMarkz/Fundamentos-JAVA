@@ -10,7 +10,7 @@ public class RentalService {
 	private Double pricePerDay;
 	private Double pricePerHour;
 	
-	private BrazilTaxService taxService;
+	private TaxService taxService;
 	
 	// Construtores da classe 
 	
@@ -41,7 +41,7 @@ public class RentalService {
 		this.pricePerHour = pricePerHour;
 	}
 
-	public BrazilTaxService getTaxService() {
+	public TaxService getTaxService() {
 		return taxService;
 	}
 

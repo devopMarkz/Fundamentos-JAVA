@@ -39,7 +39,7 @@ public class ContractService {
 			amount = paymentService.paymentFee(amount);
 			
 			Installment installment = new Installment(dueDate, amount);
-			contract.addInstallment(installment);
+			contract.getInstallments().add(installment);
 		}
 	}
 

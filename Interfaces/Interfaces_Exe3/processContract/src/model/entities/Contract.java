@@ -50,8 +50,12 @@ public class Contract {
 		this.totalValue = totalValue;
 	}
 	
-	// Métodos da classe
+	public List<Installment> getInstallments() {
+		return installments;
+	}
 	
+	// Métodos da classe
+
 	@Override
 	public String toString() {
 		return "Number of contract: " + number 
@@ -67,10 +71,6 @@ public class Contract {
 		}
 		
 		return almost.toString();
-	}
-	
-	public void addInstallment(Installment installment) {
-		installments.add(installment);
 	}
 	
 }

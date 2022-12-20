@@ -31,15 +31,16 @@ public class ContractService {
 	// Métodos da classe
 	
 	public void processContract(Contract contract, int months) { // Gera as prestações do contrato
+		double basicQuota = contract.getTotalValue() / months;
+		
 		for (int i = 1; i <= months; i++) {
 			LocalDate dueDate = contract.getDate().plusMonths(i);
-			double amount = contract.getTotalValue() / months;
 			
-			amount = paymentService.interest(amount, i);
-			amount = paymentService.paymentFee(amount);
+			double interest = paymentService.interest(basicQuota, i);
+			double fee = paymentService.paymentFee(basicQuota + interest);
+			double quota = basicQuota + interest + fee;
 			
-			Installment installment = new Installment(dueDate, amount);
-			contract.getInstallments().add(installment);
+			contract.getInstallments().add(new Installment(dueDate, quota));
 		}
 	}
 

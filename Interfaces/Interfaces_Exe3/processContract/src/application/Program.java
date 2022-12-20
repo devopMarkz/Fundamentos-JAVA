@@ -28,7 +28,7 @@ public class Program {
 		
 		Contract contract = new Contract(number, date, totalValue);
 		
-		System.out.println("Entre com o número de parcelas: ");
+		System.out.print("Entre com o número de parcelas: ");
 		int numberOfInstallments = sc.nextInt();
 		
 		ContractService service = new ContractService(new PaypalService());

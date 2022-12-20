@@ -11,7 +11,7 @@ public class Contract {
 	private LocalDate date;
 	private Double totalValue;
 	
-	List<Installment> installments = new ArrayList<>();
+	private List<Installment> installments = new ArrayList<>();
 	
 	// Construtores da classe
 	

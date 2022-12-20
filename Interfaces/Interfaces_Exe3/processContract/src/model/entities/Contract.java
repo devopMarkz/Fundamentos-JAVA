@@ -69,4 +69,8 @@ public class Contract {
 		return almost.toString();
 	}
 	
+	public void addInstallment(Installment installment) {
+		installments.add(installment);
+	}
+	
 }

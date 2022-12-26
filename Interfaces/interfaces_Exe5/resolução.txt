@@ -1,0 +1,4 @@
+O sistema gira em torno de um sistema de estacionamento que
+recolhe os dados do cliente, hora de entrada, hora de saída
+e emite uma nota referente às informações juntamente do valor
+a pagar por horas do carro no estacionamento.

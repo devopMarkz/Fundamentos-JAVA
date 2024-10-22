@@ -1,0 +1,6 @@
+TV,900.00
+Geladeia,1500.00
+Cama,800.00
+Luminária,2500.00
+Balcão,675.54
+Sofá,835.00

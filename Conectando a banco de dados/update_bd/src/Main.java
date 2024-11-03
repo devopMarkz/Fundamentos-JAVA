@@ -14,26 +14,25 @@ public class Main {
 
         Seller seller = null;
         Connection connection = DB.getConnection();
-        PreparedStatement stmt = null;
 
         try {
-            try {
-                stmt = connection.prepareStatement(
-                        "SELECT vendedor.Id, vendedor.Name, vendedor.Email, vendedor.BirthDate, vendedor.BaseSalary, departamento.Id, departamento.Name " +
-                                "FROM seller AS vendedor " +
-                                "INNER JOIN department AS departamento " +
-                                "ON vendedor.DepartmentId = departamento.Id " +
-                                "WHERE vendedor.Id = ?"
-                );
+            try (PreparedStatement selectStmt = connection.prepareStatement(
+                    "SELECT vendedor.Id, vendedor.Name, vendedor.Email, vendedor.BirthDate, vendedor.BaseSalary, departamento.Id, departamento.Name " +
+                            "FROM seller AS vendedor " +
+                            "INNER JOIN department AS departamento " +
+                            "ON vendedor.DepartmentId = departamento.Id " +
+                            "WHERE vendedor.Id = ?"
+                    )
+            ) {
 
                 System.out.print("Qual seu número de matrícula? ");
                 int id = new Scanner(System.in).nextInt();
 
-                stmt.setLong(1, id);
+                selectStmt.setLong(1, id);
 
-                ResultSet rs = stmt.executeQuery();
+                ResultSet rs = selectStmt.executeQuery();
 
-                while (rs.next()){
+                if (rs.next()){
                     seller = new Seller.Builder()
                             .id(rs.getLong("vendedor.Id"))
                             .name(rs.getString("vendedor.Name"))
@@ -50,26 +49,24 @@ public class Main {
                 System.out.println("O tipo de dado inserido é inválido.");
             }
 
-            try {
-                stmt = connection.prepareStatement(
-                        "UPDATE seller " +
-                                "SET BaseSalary = ? " +
-                                " WHERE Id = ?"
-                );
-
+            try (PreparedStatement updateStmt = connection.prepareStatement(
+                    "UPDATE seller " +
+                            "SET BaseSalary = ? " +
+                            " WHERE Id = ?"
+                )
+            ){
                 if (seller != null) {
                     seller.setBaseSalary(seller.getBaseSalary() * 1.5);
-                    stmt.setDouble(1, seller.getBaseSalary());
-                    stmt.setLong(2, seller.getId());
+                    updateStmt.setDouble(1, seller.getBaseSalary());
+                    updateStmt.setLong(2, seller.getId());
                 }
 
-                stmt.executeUpdate();
+                updateStmt.executeUpdate();
 
             } catch (SQLException | NullPointerException e) {
                 System.out.println(e.getMessage());
             }
         } finally {
-            DB.closeStatement(stmt);
             DB.closeConnection();
         }
 
